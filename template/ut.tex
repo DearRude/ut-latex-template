@@ -1,0 +1,110 @@
+\documentclass[a4paper,12pt]{article}
+
+% Strech line distances
+% \renewcommand{\baselinestretch}{1.3}
+\usepackage{amsmath}
+\pagestyle{plain}
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=blue,
+  }
+
+% Margins act weird with headers
+\usepackage[top=20mm, bottom=20mm, left=15mm, right=15mm]{geometry}
+
+\usepackage{fancyhdr}
+
+% reach maximum nesting
+\usepackage{enumitem}
+\usepackage{longtable}
+
+% Show source code
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Plots
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\usepackage[localise=on]{xepersian}
+
+% Line spacing
+\usepackage{setspace}
+% Set line spacing to 1.15
+\setstretch{1.15}
+% Remove additional space between paragraphs
+\setlength{\parskip}{0pt}
+
+% Set paragraph indentation (change 15pt to your preferred value)
+\setlength{\parindent}{0pt}
+
+% Fonts
+\newcommand{\applyzarfont}[1]{
+  #1[
+    Path = ./template/ir-fonts/,
+    UprightFont = IRZar,
+    BoldFont = IRZar-Bold,
+    ItalicFont = IRZar-Italic,
+    Extension = .ttf,
+  ]{IRZar}
+}
+
+\newcommand{\applymitrafont}[1]{
+  #1[
+    Path = ./template/ir-fonts/,
+    UprightFont = IRMitra,
+    BoldFont = IRMitra-Bold,
+    ItalicFont = IRMitra-Italic,
+    Extension = .ttf,
+  ]{IRMitra}
+}
+
+
+% Set font
+\applyzarfont{\settextfont}
+\applyzarfont{\setmathdigitfont}
+\applyzarfont{\setdigitfont}
+\fancypagestyle{firststyle} {
+  \rhead{\course \\
+     نام و نام خانوادگی: \name \\
+    شماره دانشجویی: \studentnumber
+    % آدرس ایمیل: ‌\email
+  }
+
+  \chead{\textbf{\Large \titlename} \\}
+  \lhead{\includegraphics[
+    height=1.3cm]{./template/ut-management-logo.png} \\ \today}
+  \headsep 5.5em
+}
+% Put style only on first page
+\thispagestyle{firststyle}
